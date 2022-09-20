@@ -4,7 +4,7 @@ Web implementation for Stanford CS106L assignment 1 -- GraphViz.
 
 Try to visualize the graph with a pleasing layout.
 
-[Live Demo](https://jaxvanyang.github.io/graphviz)
+[Live Demo](https://jaxvanyang.github.io/GraphViz)
 
 ## Input Format
 
