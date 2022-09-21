@@ -11,8 +11,12 @@ html {
   font-size: 16px;
 }
 
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
 #container {
-  /* max-width: 1000px; */
   margin: 1.5em auto;
 }
 
@@ -35,15 +39,24 @@ html {
 
 .graph-painter {
   width: 100%;
-  display: flex;
+  /* display: flex; */
   align-items: top;
   justify-content: space-around;
   margin: 2em .5em;
 }
 
+.graph-painter>div {
+  margin: 0 auto;
+}
+
+.canvas-section>#graph-canvas {
+  margin: .5em auto;
+}
+
 #graph-canvas {
   width: 500px;
   height: 400px;
+  display: block;
   border: 1px solid black;
   background-color: white;
 }
@@ -53,17 +66,24 @@ html {
 }
 
 .graph-controller>div {
-  margin: .5em .5em;
+  margin: .5em auto;
+}
+
+#text-graph, #number-time {
+  display: block;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+#text-graph {
+  margin-top: 1em;
+  width: 80%;
 }
 
 .graph-controller label {
   display: block;
   font-size: 1.5em;
-}
-
-#text-graph {
-  font-size: 1em;
-  width: 100%;
+  text-align: center;
 }
 
 .graph-input-row>label {
@@ -78,14 +98,14 @@ html {
 
 /* || Button Row */
 div.button-row {
-  margin-top: 1em;
-  display: flex;
-  justify-content: space-around;
+  margin: 1em auto;
+  width: fit-content;
 }
 
 .button-row>button {
   font-size: 1.5em;
   padding: 0 .5em;
+  margin: 0 .5em;
 }
 
 /* || Graph Examples Grid */
@@ -113,4 +133,16 @@ div.button-row {
 .graph-example:hover {
   background-color: rgb(70, 185, 227);
   color: white;
+}
+
+@media screen and (min-width: 1600px) {
+  .graph-painter {
+    /* display: flex; */
+    column-count: 3;
+    column-rule: 4px dotted rgb(79, 185, 227);
+  }
+
+  .graph-painter>div {
+    break-inside: avoid;
+  }
 }
