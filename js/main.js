@@ -338,6 +338,8 @@ function main() {
     resetCanvas(graphCtx);
     initInput(textGraph, numberTime);
   });
+
+  // TODO: auto ajust canvas size
 }
 
 main();
