@@ -13,8 +13,7 @@ html {
 
 #container {
   /* max-width: 1000px; */
-  margin: 4em auto;
-  border: 1px solid black;
+  margin: 1.5em auto;
 }
 
 .page-title {
@@ -27,6 +26,7 @@ html {
 .icon-github {
   width: 1.2em;
   height: 1.2em;
+  vertical-align: text-bottom;
 }
 
 .icon-github:hover {
