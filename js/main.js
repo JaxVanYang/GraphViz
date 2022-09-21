@@ -248,6 +248,27 @@ function updateGraph() {
   }
 }
 
+async function initGraphExamples(divGraphExamples, textGraph) {
+  const graphsApi = 'api/graphs.json';
+  const graphsDir = 'api/graphs';
+
+  const response = await fetch(graphsApi);
+  const graphs = await response.json();
+
+  divGraphExamples.innerHTML = '';
+  for (const graph of graphs) {
+    const div = document.createElement('div');
+    div.className = 'graph-example';
+    div.innerHTML = graph;
+    div.onclick = async () => {
+      const response = await fetch(`${graphsDir}/${graph}`);
+      const text = await response.text();
+      textGraph.value = text;
+    };
+    divGraphExamples.appendChild(div);
+  }
+}
+
 function main() {
   const graphCanvas = document.getElementById('graph-canvas');
   const graphCtx = graphCanvas.getContext('2d');
@@ -255,9 +276,11 @@ function main() {
   const numberTime = document.getElementById('number-time');
   const btnRun = document.getElementById('btn-run');
   const btnReset = document.getElementById('btn-reset');
+  const divGraphExamples = document.querySelector('.graph-examples');
 
   initGraphCtx(graphCtx);
   initInput(textGraph, numberTime);
+  initGraphExamples(divGraphExamples, textGraph);
 
   let start = null;
   let time = 3000;
@@ -281,6 +304,7 @@ function main() {
     }
   }
 
+  // FIXME: cannot stop animation
   function cancelAnimation() {
     if (animationId !== null) {
       cancelAnimationFrame(animationId);
