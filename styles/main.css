@@ -48,21 +48,12 @@ html {
   background-color: white;
 }
 
-.vertical-break {
-  writing-mode: vertical-lr;
-  width: 0px;
-  height: 380px;
-  border: 3px solid blue;
-  border-radius: 2px;
-  background-color: black;
-}
-
 .graph-controller {
   height: 400px;
 }
 
 .graph-controller > div {
-  margin: .5em 0;
+  margin: .5em .5em;
 }
 
 .graph-controller label {
