@@ -25,4 +25,8 @@ Output:
 
 ![triangle](images/triangle.png)
 
-You can check out the [res/](res/) folder for more examples.
+You can check out the [api/graphs/](api/graphs/) folder for more examples.
+
+## Development
+
+Place your example graphs under [api/graphs/](api/graphs/) and then run `sh/generate.sh` to generate [api/graphs.json](api/graphs.json). This file is used by the frontend to get the list of graphs.
