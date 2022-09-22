@@ -106,6 +106,7 @@ function initGraphCtx(ctx) {
   ctx.translate(width / 2, height / 2);
   ctx.scale(1, -1);
   ctx.lineWidth = 0.03;
+  ctx.fillStyle = 'rgb(70, 185, 227)';
 }
 
 function initGraph() {
@@ -141,7 +142,7 @@ function drawGraph(ctx) {
   const height = ctx.canvas.height;
   let deltaX = 0, deltaY = 0;
 
-  // Save current transformation matrix for resetCanvas()
+  // save current transformation matrix for resetCanvas()
   ctx.save();
 
   for (const node of graph.nodes) {
@@ -158,14 +159,14 @@ function drawGraph(ctx) {
   const scale = Math.min(scaleX, scaleY) * 0.9;
   ctx.scale(scale, scale);
 
-  for (const node of graph.nodes) {
-    drawNode(node, ctx);
-  }
-
   for (const edge of graph.edges) {
     const start = graph.nodes[edge.start];
     const end = graph.nodes[edge.end];
     drawLine(start, end, ctx);
+  }
+
+  for (const node of graph.nodes) {
+    drawNode(node, ctx);
   }
 
   ctx.beginPath();
@@ -227,7 +228,7 @@ function updateGraph() {
     }
   }
 
-  // calculate attractive force between edges
+  // calculate attractive force between edge's end nodes
   for (const edge of edges) {
     const start = nodes[edge.start];
     const end = nodes[edge.end];
