@@ -1,5 +1,7 @@
 # GraphViz
 
+![Cube](images/cube.gif)
+
 Web implementation for Stanford CS106L assignment 1 -- GraphViz.
 
 Try to visualize the graph with a pleasing layout.

@@ -1,3 +1,8 @@
+// Return random number in range [min, max)
+function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 class Node {
   constructor(x = 0, y = 0) {
     this.x = x;
@@ -19,17 +24,23 @@ class SimpleGraph {
   }
 }
 
-class Force {
-  constructor() {
-    this.x = 0;
-    this.y = 0;
-  }
-}
-
 
 const kRepel = 0.001;
 const kAttract = 0.001;
+const kRandom = 0.0002;
 let graph;
+
+
+class Force {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = x;
+  }
+
+  static randomForce() {
+    return new Force(randomRange(-kRandom, kRandom), randomRange(-kRandom, kRandom));
+  }
+}
 
 
 // Use default graph
@@ -206,9 +217,10 @@ function updateGraph() {
   const nodes = graph.nodes;
   const edges = graph.edges;
   const n = nodes.length;
+
   const forces = [];
   for (let i = 0; i < n; ++i) {
-    forces.push(new Force());
+    forces.push(Force.randomForce());
   }
 
   // calculate repulsive force between nodes
